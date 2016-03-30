@@ -17,7 +17,7 @@ UINT g_Texture[MAX_TEXTURES] = {0};
 CLoadObj g_Loadobj;									
 t3DModel g_3DModel;									
 
-int   g_ViewMode = GL_LINE_STRIP;
+int   g_ViewMode = GL_TRIANGLES;//GL_LINE_STRIP;
 bool  g_bLighting     = true;		
 float g_RotateX		  = 0.0f;		
 float g_RotationSpeed = 0.1f;		
@@ -89,6 +89,37 @@ void RenderScene()
 		g_RotateX += g_RotationSpeed;
 		//	glEnable(GL_LIGHTING);
 		// 遍历模型中所有的对象
+		glLineWidth(3.0f);
+		glBegin(GL_LINES);
+		// 绘制红色的x轴
+		glColor3f(1.f, 0.f, 0.f);
+		glVertex3f(-1.0f, 1.0f, 0.0f);
+		glVertex3f(1.0f, 1.0f, 0.0f);
+
+		glColor3f(1.f, 0.f, 0.f);
+		glVertex3f(1.0f, 1.0f, 0.0f);
+		glVertex3f(1.0f, -1.0f, 0.0f);
+
+		glColor3f(1.f, 0.f, 0.f);
+		glVertex3f(-1.0f, -1.0f, 0.0f);
+		glVertex3f(1.0, -1.0f, 0.0f);
+
+		glColor3f(1.f, 0.f, 0.f);
+		glVertex3f(-1.0f, 1.0f, 0.0f);
+		glVertex3f(-1.0f, -1.0f, 0.0f);
+
+
+
+
+		// 绘制绿色的y轴
+		glColor3f(0.f, 1.f, 0.f);
+		glVertex3f(0.0f, 0.0f, 0.0f);
+		glVertex3f(0.0f, 5, 0.0f);
+		// 绘制蓝色的z轴
+		glColor3f(0.f, 0.f, 1.f);
+		glVertex3f(0.0f, 0.0f, 0.0f);
+		glVertex3f(0.0f, 0.0f, 5);
+		glEnd();
 		int CountIndex = 0;
 		for (int i = 0; i < g_3DModel.numOfObjects; i++)
 		{
@@ -146,16 +177,17 @@ void RenderScene()
 					}
 					glColor3f(0.0f, 0.0f, 0.0f);
 				//	glColor3f(float((j % 255) / 255), 1.0f - (float(j % 255) / 255), 0.0);
-					if (m_DataAdapter.DataIndex[CountIndex] == 1)
+					if (m_DataAdapter.DataIndex[CountIndex] >0 && CountIndex <= 18847)
 					{
-						glColor3f(1.0f, 0.0f, 0.0f);
+						glColor3f((float)m_DataAdapter.AddressCode[(m_DataAdapter.DataIndex[CountIndex])].R, (float)m_DataAdapter.AddressCode[m_DataAdapter.DataIndex[CountIndex]].G, (float)m_DataAdapter.AddressCode[m_DataAdapter.DataIndex[CountIndex]].B);
+				//		glColor3f(1.0f, 0.0f, 0.0f);
 					}
 // 					else
 // 					{
 // 						glColor3f(0.0f, 0.0f, 0.0f);
 // 					}
 					
-
+					
 				//	glColor3f((float)m_DataAdapter.m_parallel3DObj[i].pColors[index].x / 255, (float)m_DataAdapter.m_parallel3DObj[i].pColors[index].y / 255, (float)m_DataAdapter.m_parallel3DObj[i].pColors[index].z / 255);
 					glVertex3f(pObject->pVerts[index].x, pObject->pVerts[index].y, pObject->pVerts[index].z);
 					CountIndex++;

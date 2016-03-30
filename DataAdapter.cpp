@@ -9,10 +9,18 @@ inline int TotalVertexNum()
 	}
 	return count;
 }
+
 DataAdapter::DataAdapter()
 {
 	m_parallel3DObj = new t3DParallelColor[OBJ_NUM];
 	DataIndex = new int[18847];//18847 = total point number in brain obj
+	AddressCode = new V3D[40]; //40 == neuro address count
+	for (int i = 0; i < 40; i++)
+	{
+		AddressCode[i].R = ((float)((rand() % 255))) / 255;
+		AddressCode[i].G = ((float)((rand() % 255))) / 255;
+		AddressCode[i].B = ((float)((rand() % 255))) / 255;
+	}
 	for (int i = 0; i < 18847;i++)
 	{
 		DataIndex[i] = 0;
@@ -32,7 +40,25 @@ DataAdapter::DataAdapter()
 	}
 	this->start();
 }
+//reserved this function for further rendering
+void DataAdapter::GenerateAddressCode(string Str_bit19, int Index)
+{
+	
+	for (int i = 0; i < Str_bit19.length(); i++)
+	{
+		bitset<8> temp_bit8_R(Str_bit19.substr(0, 7));
+		bitset<8> temp_bit8_G(Str_bit19.substr(7, 6));
+		bitset<8> temp_bit8_B(Str_bit19.substr(13, 6));
+		temp_bit8_R << 1;
+		temp_bit8_G << 2;
+		temp_bit8_B << 2;
+		AddressCode[Index].R = (float)((float)(temp_bit8_R.to_ulong()) / 255);
+		AddressCode[Index].G = (float)((float)(temp_bit8_G.to_ulong()) / 255);
+		AddressCode[Index].B = (float)((float)(temp_bit8_B.to_ulong()) / 255);
 
+	}
+
+}
 void DataAdapter::run()
 {
 	ofstream ofile;
@@ -52,6 +78,14 @@ void DataAdapter::run()
 				// rendering process
 				for (int k = 0; k < m_FrameList.size(); k++)
 				{
+// 					for (int i = 0; i < m_FrameList[k].neuro_address.size(); i++)
+// 					{
+// 						string Str_bit19 = m_FrameList[k].neuro_address[i].to_string();
+// 						GenerateAddressCode(Str_bit19, i);
+// 					}
+// 					
+
+
 					for (int i = 0; i < m_FrameList[k].neuro_data.size(); i++)
 					{
 						string Str_bit40 = m_FrameList[k].neuro_data[i].to_string();
@@ -66,7 +100,7 @@ void DataAdapter::run()
 // 								ofile << "Str_bit40: " << i << endl;
 // 								ofile << "Str_bit40: " << j << endl;
 								ofile <<"Index: " <<Index << endl;
-								DataIndex[Index] = 1;//could be transfered by address code
+								DataIndex[Index] = j;//could be transfered by address code
 								SpikedNum++;
 							}
 							else
@@ -97,4 +131,6 @@ void DataAdapter::run()
 		}
 	}
 }
+
+
 

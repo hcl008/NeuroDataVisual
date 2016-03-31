@@ -4,6 +4,9 @@
 #include <fstream>
 #include <bitset>
 #include <vector>
+
+
+
 using namespace std;
 typedef struct
 {

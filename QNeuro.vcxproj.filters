@@ -86,6 +86,9 @@
     <ClCompile Include="GeneratedFiles\Release\moc_DataAdapter.cpp">
       <Filter>Generated Files\Release</Filter>
     </ClCompile>
+    <ClCompile Include="QtDirObserver.cpp">
+      <Filter>DataAdapter</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <CustomBuild Include="glwidget.h">
@@ -118,6 +121,9 @@
       <Filter>LoadObj</Filter>
     </ClInclude>
     <ClInclude Include="OriginalData.h">
+      <Filter>DataAdapter</Filter>
+    </ClInclude>
+    <ClInclude Include="QtDirObserver.h">
       <Filter>DataAdapter</Filter>
     </ClInclude>
   </ItemGroup>

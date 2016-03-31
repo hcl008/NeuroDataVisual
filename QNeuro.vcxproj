@@ -110,6 +110,7 @@
     <ClCompile Include="obj_main.cpp" />
     <ClCompile Include="OriginalData.cpp" />
     <ClCompile Include="QGlutThread.cpp" />
+    <ClCompile Include="QtDirObserver.cpp" />
   </ItemGroup>
   <ItemGroup>
     <CustomBuild Include="glwidget.h">
@@ -136,6 +137,7 @@
     </CustomBuild>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="QtDirObserver.h" />
     <CustomBuild Include="DataAdapter.h">
       <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">$(QTDIR)\bin\moc.exe;%(FullPath)</AdditionalInputs>
       <Message Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Moc%27ing DataAdapter.h...</Message>

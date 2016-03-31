@@ -89,37 +89,34 @@ void RenderScene()
 		g_RotateX += g_RotationSpeed;
 		//	glEnable(GL_LIGHTING);
 		// 遍历模型中所有的对象
-		glLineWidth(3.0f);
-		glBegin(GL_LINES);
-		// 绘制红色的x轴
-		glColor3f(1.f, 0.f, 0.f);
-		glVertex3f(-1.0f, 1.0f, 0.0f);
-		glVertex3f(1.0f, 1.0f, 0.0f);
+// 		glLineWidth(3.0f);
+// 		glBegin(GL_LINES);
+// 		// 绘制红色的x轴
+// 		glColor3f(1.f, 0.f, 0.f);
+// 		glVertex3f(-1.0f, 1.0f, 0.0f);
+// 		glVertex3f(1.0f, 1.0f, 0.0f);
+// 
+// 		glColor3f(1.f, 0.f, 0.f);
+// 		glVertex3f(1.0f, 1.0f, 0.0f);
+// 		glVertex3f(1.0f, -1.0f, 0.0f);
+// 
+// 		glColor3f(1.f, 0.f, 0.f);
+// 		glVertex3f(-1.0f, -1.0f, 0.0f);
+// 		glVertex3f(1.0, -1.0f, 0.0f);
+// 
+// 		glColor3f(1.f, 0.f, 0.f);
+// 		glVertex3f(-1.0f, 1.0f, 0.0f);
+// 		glVertex3f(-1.0f, -1.0f, 0.0f);
 
-		glColor3f(1.f, 0.f, 0.f);
-		glVertex3f(1.0f, 1.0f, 0.0f);
-		glVertex3f(1.0f, -1.0f, 0.0f);
-
-		glColor3f(1.f, 0.f, 0.f);
-		glVertex3f(-1.0f, -1.0f, 0.0f);
-		glVertex3f(1.0, -1.0f, 0.0f);
-
-		glColor3f(1.f, 0.f, 0.f);
-		glVertex3f(-1.0f, 1.0f, 0.0f);
-		glVertex3f(-1.0f, -1.0f, 0.0f);
-
-
-
-
-		// 绘制绿色的y轴
-		glColor3f(0.f, 1.f, 0.f);
-		glVertex3f(0.0f, 0.0f, 0.0f);
-		glVertex3f(0.0f, 5, 0.0f);
-		// 绘制蓝色的z轴
-		glColor3f(0.f, 0.f, 1.f);
-		glVertex3f(0.0f, 0.0f, 0.0f);
-		glVertex3f(0.0f, 0.0f, 5);
-		glEnd();
+// 		// 绘制绿色的y轴
+// 		glColor3f(0.f, 1.f, 0.f);
+// 		glVertex3f(0.0f, 0.0f, 0.0f);
+// 		glVertex3f(0.0f, 5, 0.0f);
+// 		// 绘制蓝色的z轴
+// 		glColor3f(0.f, 0.f, 1.f);
+// 		glVertex3f(0.0f, 0.0f, 0.0f);
+// 		glVertex3f(0.0f, 0.0f, 5);
+// 		glEnd();
 		int CountIndex = 0;
 		for (int i = 0; i < g_3DModel.numOfObjects; i++)
 		{

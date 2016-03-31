@@ -238,6 +238,13 @@ vector<vector<vector<string>>> GetDataProcess::GetFrame(vector<vector<string>> P
 
 GetDataProcess::GetDataProcess()
 {
+	
+// 	FilePath = QFileDialog::getExistingDirectory(NULL, "Qt", "C:\\", QFileDialog::ShowDirsOnly);
+// 	m_pDir = new QDir();
+// 	QStringList filter;
+// 	QList<QFileInfo> *fileInfo = new QList<QFileInfo>(m_pDir->entryInfoList(filter));
+// 	int fileNumber = fileInfo->count();
+
 	init();
 }
 
@@ -246,7 +253,7 @@ int GetDataProcess::Input()
 	vector<string> vectemp;
 	int count = 0;
 	bool isEof = false;
-	for (int i = 0; i < 1; i++)
+	for (int i = 0; i < 5; i++)
 	{
 		if (isEof)
 		{
@@ -311,7 +318,7 @@ void GetDataProcess::init()
 	RowNum = 0;
 	RowStep = 0;
 	
-	infile.open("C:\\Users\\pc\\Downloads\\data\\O_synthetic.sk");
+	infile.open("O_synthetic.sk");//C:\\Users\\pc\\Downloads\\data\\O_synthetic.sk
 	if (!infile)
 	{
 		cout << "can't find recorded data";
@@ -338,7 +345,7 @@ bool GetDataProcess::do_Facade_Data()
 
 GenerateFakeData::GenerateFakeData()
 {
-	ofile.open("C:\\Users\\pc\\Downloads\\data\\O_Fake.sk");
+	ofile.open("O_Fake.sk");
 }
 
 

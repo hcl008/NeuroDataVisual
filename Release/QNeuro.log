@@ -1,9 +1,50 @@
-﻿生成启动时间为 2016/3/31 17:30:50。
-     1>项目“C:\Users\pc\Documents\Visual Studio 2013\Projects\QNeuro\QNeuro\QNeuro.vcxproj”在节点 2 上(Build 个目标)。
-     1>Link:
+﻿生成启动时间为 2016/4/1 17:26:47。
+     1>项目“C:\Users\pc\Documents\Visual Studio 2013\Projects\QNeuro\QNeuro\QNeuro.vcxproj”在节点 2 上(Rebuild 个目标)。
+     1>CustomBuild:
+         Moc'ing glwidget.h...
+         Uic'ing glwidget.ui...
+         Moc'ing DataAdapter.h...
+         Moc'ing QGlutThread.h...
+     1>C:\Users\pc\Documents\Visual Studio 2013\Projects\QNeuro\QNeuro\QGlutThread.h(26): warning : Class QGlutThread inherits from two QObject subclasses QWidget and QThread. This is not supported!
+         Rcc'ing glwidget.qrc...
+     1>RCC : warning : No resources in 'C:\Users\pc\Documents\Visual Studio 2013\Projects\QNeuro\QNeuro\glwidget.qrc'.
+         
+       ClCompile:
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /I.\GeneratedFiles /I. /IC:\Qt\Qt5.3.2\5.3\msvc2013_opengl\include /I.\GeneratedFiles\Release /IC:\Qt\Qt5.3.2\5.3\msvc2013_opengl\include\QtCore /IC:\Qt\Qt5.3.2\5.3\msvc2013_opengl\include\QtGui /IC:\Qt\Qt5.3.2\5.3\msvc2013_opengl\include\QtMultimedia /IC:\Qt\Qt5.3.2\5.3\msvc2013_opengl\include\QtMultimediaWidgets /IC:\Qt\Qt5.3.2\5.3\msvc2013_opengl\include\QtNetwork /IC:\Qt\Qt5.3.2\5.3\msvc2013_opengl\include\QtQuick /IC:\Qt\Qt5.3.2\5.3\msvc2013_opengl\include\QtSql /IC:\Qt\Qt5.3.2\5.3\msvc2013_opengl\include\QtTest /IC:\Qt\Qt5.3.2\5.3\msvc2013_opengl\include\ActiveQt /IC:\Qt\Qt5.3.2\5.3\msvc2013_opengl\include\QtOpenGL /IC:\Qt\Qt5.3.2\5.3\msvc2013_opengl\include\QtPrintSupport /IC:\Qt\Qt5.3.2\5.3\msvc2013_opengl\include\QtWidgets /IC:\Qt\Qt5.3.2\5.3\msvc2013_opengl\include\QtXml /IC:\Qt\Qt5.3.2\5.3\msvc2013_opengl\include\QtXmlPatterns /nologo /W1 /WX- /O2 /Oy- /D UNICODE /D WIN32 /D WIN64 /D QT_DLL /D QT_NO_DEBUG /D NDEBUG /D QT_CORE_LIB /D QT_GUI_LIB /D QT_MULTIMEDIA_LIB /D QT_MULTIMEDIAWIDGETS_LIB /D QT_NETWORK_LIB /D QT_QUICK_LIB /D QT_SQL_LIB /D QT_TESTLIB_LIB /D QT_OPENGL_LIB /D QT_PRINTSUPPORT_LIB /D QT_WIDGETS_LIB /D QT_XML_LIB /D QT_XMLPATTERNS_LIB /Gm- /EHsc /MD /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Release\\" /Fd"Release\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt DataAdapter.cpp GeneratedFiles\Release\moc_DataAdapter.cpp GeneratedFiles\Release\moc_glwidget.cpp GeneratedFiles\Release\moc_QGlutThread.cpp glwidget.cpp Init.cpp main.cpp Obj.cpp obj_main.cpp OriginalData.cpp QBatExec.cpp QGlutThread.cpp QtDirObserver.cpp
+         DataAdapter.cpp
+         moc_DataAdapter.cpp
+         moc_glwidget.cpp
+         moc_QGlutThread.cpp
+         glwidget.cpp
+         Init.cpp
+         main.cpp
+         Obj.cpp
+         obj_main.cpp
+         OriginalData.cpp
+         QBatExec.cpp
+         QGlutThread.cpp
+         QtDirObserver.cpp
+         正在生成代码...
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /I.\GeneratedFiles /I. /IC:\Qt\Qt5.3.2\5.3\msvc2013_opengl\include /I.\GeneratedFiles\Release /IC:\Qt\Qt5.3.2\5.3\msvc2013_opengl\include\QtCore /IC:\Qt\Qt5.3.2\5.3\msvc2013_opengl\include\QtGui /IC:\Qt\Qt5.3.2\5.3\msvc2013_opengl\include\QtMultimedia /IC:\Qt\Qt5.3.2\5.3\msvc2013_opengl\include\QtMultimediaWidgets /IC:\Qt\Qt5.3.2\5.3\msvc2013_opengl\include\QtNetwork /IC:\Qt\Qt5.3.2\5.3\msvc2013_opengl\include\QtQuick /IC:\Qt\Qt5.3.2\5.3\msvc2013_opengl\include\QtSql /IC:\Qt\Qt5.3.2\5.3\msvc2013_opengl\include\QtTest /IC:\Qt\Qt5.3.2\5.3\msvc2013_opengl\include\ActiveQt /IC:\Qt\Qt5.3.2\5.3\msvc2013_opengl\include\QtOpenGL /IC:\Qt\Qt5.3.2\5.3\msvc2013_opengl\include\QtPrintSupport /IC:\Qt\Qt5.3.2\5.3\msvc2013_opengl\include\QtWidgets /IC:\Qt\Qt5.3.2\5.3\msvc2013_opengl\include\QtXml /IC:\Qt\Qt5.3.2\5.3\msvc2013_opengl\include\QtXmlPatterns /nologo /W1 /WX- /O2 /Oy- /D UNICODE /D WIN32 /D WIN64 /D QT_DLL /D QT_NO_DEBUG /D NDEBUG /D QT_CORE_LIB /D QT_GUI_LIB /D QT_MULTIMEDIA_LIB /D QT_MULTIMEDIAWIDGETS_LIB /D QT_NETWORK_LIB /D QT_QUICK_LIB /D QT_SQL_LIB /D QT_TESTLIB_LIB /D QT_OPENGL_LIB /D QT_PRINTSUPPORT_LIB /D QT_WIDGETS_LIB /D QT_XML_LIB /D QT_XMLPATTERNS_LIB /Gm- /EHsc /MD /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Release\\" /Fd"Release\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt GeneratedFiles\qrc_glwidget.cpp
+         qrc_glwidget.cpp
+       Link:
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"C:\Users\pc\Documents\Visual Studio 2013\Projects\QNeuro\Win32\Release\\QNeuro.exe" /NOLOGO /LIBPATH:C:\Qt\Qt5.3.2\5.3\msvc2013_opengl\lib qtmain.lib Qt5Core.lib Qt5Gui.lib Qt5Multimedia.lib Qt5MultimediaWidgets.lib Qt5Network.lib Qt5Quick.lib Qt5Sql.lib Qt5Test.lib Qt5AxContainer.lib Qt5AxBase.lib Qt5OpenGL.lib opengl32.lib glu32.lib Qt5PrintSupport.lib Qt5Widgets.lib Qt5Xml.lib Qt5XmlPatterns.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /PDB:"C:\Users\pc\Documents\Visual Studio 2013\Projects\QNeuro\Win32\Release\QNeuro.pdb" /SUBSYSTEM:WINDOWS /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:\Users\pc\Documents\Visual Studio 2013\Projects\QNeuro\Win32\Release\QNeuro.lib" /MACHINE:X86 /SAFESEH /SAFESEH:NO Release\DataAdapter.obj
+         Release\qrc_glwidget.obj
+         Release\moc_DataAdapter.obj
+         Release\moc_glwidget.obj
+         Release\moc_QGlutThread.obj
+         Release\glwidget.obj
+         Release\Init.obj
+         Release\main.obj
+         Release\Obj.obj
+         Release\obj_main.obj
+         Release\OriginalData.obj
+         Release\QBatExec.obj
+         Release\QGlutThread.obj
+         Release\QtDirObserver.obj
          QNeuro.vcxproj -> C:\Users\pc\Documents\Visual Studio 2013\Projects\QNeuro\Win32\Release\QNeuro.exe
-     1>已完成生成项目“C:\Users\pc\Documents\Visual Studio 2013\Projects\QNeuro\QNeuro\QNeuro.vcxproj”(Build 个目标)的操作。
+     1>已完成生成项目“C:\Users\pc\Documents\Visual Studio 2013\Projects\QNeuro\QNeuro\QNeuro.vcxproj”(Rebuild 个目标)的操作。
 
 生成成功。
 
-已用时间 00:00:00.09
+已用时间 00:00:23.32

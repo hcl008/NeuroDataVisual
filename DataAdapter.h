@@ -41,6 +41,6 @@ public:
 private:
 	int ReadStep;
 	bool DoRead;
-
+	QtDirObserver m_DirObserver;
 
 };

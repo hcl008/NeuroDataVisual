@@ -62,73 +62,84 @@ void DataAdapter::GenerateAddressCode(string Str_bit19, int Index)
 void DataAdapter::run()
 {
 	ofstream ofile;
-	ofile.open("log.txt");
+	
 	bool StartLoop = true;
 	DoRead = true;
 	char one = '1';
 	int SpikedNum = 0;
-	while (StartLoop)
+	int CurrentFrameIndex = 0;
+	while (1)
 	{
 	//	sleep(100);
 		while (DoRead)
 		{
-			if (m_OriginalData.do_Facade_Data())
+			if (m_DirObserver.CurrentCursor-1 > 2)
 			{
-				m_FrameList = m_OriginalData.m_FrameList;
-				// rendering process
-				for (int k = 0; k < m_FrameList.size(); k++)
+				if (m_OriginalData.do_Facade_Data(CurrentFrameIndex))
 				{
-// 					for (int i = 0; i < m_FrameList[k].neuro_address.size(); i++)
-// 					{
-// 						string Str_bit19 = m_FrameList[k].neuro_address[i].to_string();
-// 						GenerateAddressCode(Str_bit19, i);
-// 					}
-// 					
-
-
-					for (int i = 0; i < m_FrameList[k].neuro_data.size(); i++)
+					m_FrameList = m_OriginalData.m_FrameList;
+					// rendering process
+					for (int k = 0; k < m_FrameList.size(); k++)
 					{
-						string Str_bit40 = m_FrameList[k].neuro_data[i].to_string();
-						for (int j = 0; j < Str_bit40.length(); j++)
-						{
-							
+						// 					for (int i = 0; i < m_FrameList[k].neuro_address.size(); i++)
+						// 					{
+						// 						string Str_bit19 = m_FrameList[k].neuro_address[i].to_string();
+						// 						GenerateAddressCode(Str_bit19, i);
+						// 					}
+						// 					
 
-							int Index = ((i * 40) + j)*18847/(40*256);
-							
-							if (Str_bit40[j] == one)
+
+						for (int i = 0; i < m_FrameList[k].neuro_data.size(); i++)
+						{
+							string Str_bit40 = m_FrameList[k].neuro_data[i].to_string();
+							for (int j = 0; j < Str_bit40.length(); j++)
 							{
-// 								ofile << "Str_bit40: " << i << endl;
-// 								ofile << "Str_bit40: " << j << endl;
-								ofile <<"Index: " <<Index << endl;
-								DataIndex[Index] = j;//could be transfered by address code
-								SpikedNum++;
-							}
-							else
-							{
-								DataIndex[Index] = 0;
+
+
+								int Index = ((i * 40) + j) * 18847 / (40 * 256);
+
+								if (Str_bit40[j] == one)
+								{
+									// 								ofile << "Str_bit40: " << i << endl;
+									// 								ofile << "Str_bit40: " << j << endl;
+									ofile.open("log.txt");
+									ofile << "Index: " << Index << endl;
+									ofile.close();
+									DataIndex[Index] = j;//could be transfered by address code
+									SpikedNum++;
+								}
+								else
+								{
+									DataIndex[Index] = 0;
+								}
 							}
 						}
 					}
-				}
-				ofile << "SpikedNum: " << SpikedNum << endl;
-				SpikedNum = 0;
-				for (int i = 0; i < OBJ_NUM; i ++)
-				{
-					for (int j = 0; j < VertexNum[i]; j ++)
+					ofile.open("log.txt");
+					ofile << "SpikedNum: " << SpikedNum << endl;
+					ofile.close();
+					SpikedNum = 0;
+					for (int i = 0; i < OBJ_NUM; i++)
 					{
-						m_parallel3DObj[i].pColors[j].x = i % 255;
-						m_parallel3DObj[i].pColors[j].y = j % 255;
-						m_parallel3DObj[i].pColors[j].z = (i + j) % 255;
+						for (int j = 0; j < VertexNum[i]; j++)
+						{
+							m_parallel3DObj[i].pColors[j].x = i % 255;
+							m_parallel3DObj[i].pColors[j].y = j % 255;
+							m_parallel3DObj[i].pColors[j].z = (i + j) % 255;
+						}
 					}
+					m_OriginalData.m_FrameList.clear();
+					CurrentFrameIndex++;
 				}
-				m_OriginalData.m_FrameList.clear();
+
+				
+				DoRead = false;
 			}
 			else
 			{
-				StartLoop = false;
+		//		sleep(300);
 			}
-			DoRead = false;
-		}
+		}//(m_DirObserver.CurrentCursor-1 > CurrentFrameIndex)
 	}
 }
 

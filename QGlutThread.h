@@ -7,7 +7,7 @@
 #include <GL\glut.h>
 #include <QEvent>
 #include "DataAdapter.h"
-
+#include <fstream>
 class QGlutThread : public QWidget, public QThread
 {
 	Q_OBJECT

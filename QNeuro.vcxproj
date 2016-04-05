@@ -109,6 +109,7 @@
     <ClCompile Include="Obj.cpp" />
     <ClCompile Include="obj_main.cpp" />
     <ClCompile Include="OriginalData.cpp" />
+    <ClCompile Include="QBatExec.cpp" />
     <ClCompile Include="QGlutThread.cpp" />
     <ClCompile Include="QtDirObserver.cpp" />
   </ItemGroup>
@@ -137,6 +138,7 @@
     </CustomBuild>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="QBatExec.h" />
     <ClInclude Include="QtDirObserver.h" />
     <CustomBuild Include="DataAdapter.h">
       <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">$(QTDIR)\bin\moc.exe;%(FullPath)</AdditionalInputs>

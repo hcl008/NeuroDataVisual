@@ -4,8 +4,8 @@
 #include <fstream>
 #include <bitset>
 #include <vector>
-
-
+#include "QtDirObserver.h"
+#include <QDir>
 
 using namespace std;
 typedef struct
@@ -46,7 +46,7 @@ private:
 	vector<vector<vector<string>>> PackageWithFrame;
 	bitset<8> m_byte;
 	ifstream infile;
-
+	char * tempchar;
 // 	/*vector<Frame> m_FrameList;*/
 // 	typedef struct
 // 	{
@@ -58,9 +58,9 @@ private:
 public:
 	GetDataProcess();
 	~GetDataProcess(){};
-	int Input();
+	int Input(int FrameIndex);
 	void init();
-	bool do_Facade_Data();
+	bool do_Facade_Data(int FrameIndex);
 	vector<vector<vector<string>>> GetFrame(vector<vector<string>> Package); //input package with 128 bit vector and return package with frame vector
 	void DecodePackage(vector<vector<vector<string>>>);
 	vector<Frame> m_FrameList;

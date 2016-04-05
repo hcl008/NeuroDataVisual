@@ -89,6 +89,9 @@
     <ClCompile Include="QtDirObserver.cpp">
       <Filter>DataAdapter</Filter>
     </ClCompile>
+    <ClCompile Include="QBatExec.cpp">
+      <Filter>DataAdapter</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <CustomBuild Include="glwidget.h">
@@ -124,6 +127,9 @@
       <Filter>DataAdapter</Filter>
     </ClInclude>
     <ClInclude Include="QtDirObserver.h">
+      <Filter>DataAdapter</Filter>
+    </ClInclude>
+    <ClInclude Include="QBatExec.h">
       <Filter>DataAdapter</Filter>
     </ClInclude>
   </ItemGroup>

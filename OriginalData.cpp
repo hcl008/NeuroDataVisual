@@ -239,21 +239,29 @@ vector<vector<vector<string>>> GetDataProcess::GetFrame(vector<vector<string>> P
 GetDataProcess::GetDataProcess()
 {
 	
-// 	FilePath = QFileDialog::getExistingDirectory(NULL, "Qt", "C:\\", QFileDialog::ShowDirsOnly);
-// 	m_pDir = new QDir();
-// 	QStringList filter;
-// 	QList<QFileInfo> *fileInfo = new QList<QFileInfo>(m_pDir->entryInfoList(filter));
-// 	int fileNumber = fileInfo->count();
-
+	tempchar = new char[30];
 	init();
 }
 
-int GetDataProcess::Input()
+int GetDataProcess::Input(int FrameIndex)
 {
 	vector<string> vectemp;
 	int count = 0;
 	bool isEof = false;
-	for (int i = 0; i < 5; i++)
+	string FileHeader = "C:\\Data\\spk_recorded";
+	
+	if (FrameIndex>=1)
+	{
+		itoa(FrameIndex, tempchar, 10);
+		FileHeader += tempchar;
+	}
+	infile.open(FileHeader);//C:\\Users\\pc\\Downloads\\data\\O_synthetic.sk
+	if (!infile)
+	{
+		cout << "can't find recorded data";
+
+	}
+	for (int i = 0; i < 1; i++)
 	{
 		if (isEof)
 		{
@@ -275,40 +283,14 @@ int GetDataProcess::Input()
 
 		}
 	}
-/*	while (!infile.eof() && RowNum <= 17)
-	{
-
-
-		/*
-		for (int i = 0; i < vectemp.size(); i ++)
-		{
-		bitset<8> bi = (atoi(vectemp[i].c_str()));//convert str to bit set in 8 bit
-		}
-		*/
-	/*
-		if (count == 94)
-		{
-			count = 0;
-			RowNum++;
-		}
-		
-		if (RowNum <= 17)
-		{
-			infile >> tempData;
-			vectemp = split_comer(tempData);
-			Data.push_back(vectemp);
-		}
-		count++;
-		
-	} 
-	 //with each unit of row
-	RowNum = 0;
-	RowStep++;
-	*/
-	if (infile.eof())
-	{
-		return 0;
-	}
+	infile.close();
+	QDir RemoveFile;
+	QString QFileHeader = QString::fromStdString(FileHeader);
+	RemoveFile.remove(QFileHeader);
+// 	if (infile.eof())
+// 	{
+// 		return 0;
+// 	}
 	return 1;
 }
 
@@ -318,17 +300,12 @@ void GetDataProcess::init()
 	RowNum = 0;
 	RowStep = 0;
 	
-	infile.open("O_synthetic.sk");//C:\\Users\\pc\\Downloads\\data\\O_synthetic.sk
-	if (!infile)
-	{
-		cout << "can't find recorded data";
-		
-	}
+
 }
 
-bool GetDataProcess::do_Facade_Data()
+bool GetDataProcess::do_Facade_Data(int FrameIndex)
 {
-	if (Input() == 1)
+	if (Input(FrameIndex) == 1)
 	{
 		PackageWithFrame = GetFrame(Data);
 		DecodePackage(PackageWithFrame);

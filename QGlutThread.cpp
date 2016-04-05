@@ -86,6 +86,7 @@ QGlutThread::QGlutThread(int argc, char* argv[], QWidget *parent /*= 0*/)
 {
 
 //	this->setGeometry(0, 0, windowWidth, windowHeight);;
+
 	Init();
 		//≥ı ºªØglut 
 	glutInit(&argc, argv);

@@ -92,6 +92,15 @@
     <ClCompile Include="QBatExec.cpp">
       <Filter>DataAdapter</Filter>
     </ClCompile>
+    <ClCompile Include="QMainPanel.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="GeneratedFiles\Debug\moc_QMainPanel.cpp">
+      <Filter>Generated Files\Debug</Filter>
+    </ClCompile>
+    <ClCompile Include="AQWidgetFrameless.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <CustomBuild Include="glwidget.h">
@@ -112,6 +121,9 @@
     <CustomBuild Include="DataAdapter.h">
       <Filter>DataAdapter</Filter>
     </CustomBuild>
+    <CustomBuild Include="QMainPanel.h">
+      <Filter>Header Files</Filter>
+    </CustomBuild>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="GeneratedFiles\ui_glwidget.h">
@@ -131,6 +143,9 @@
     </ClInclude>
     <ClInclude Include="QBatExec.h">
       <Filter>DataAdapter</Filter>
+    </ClInclude>
+    <ClInclude Include="AQWidgetFrameless.h">
+      <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

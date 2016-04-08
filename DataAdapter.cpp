@@ -67,7 +67,7 @@ void DataAdapter::run()
 	DoRead = true;
 	char one = '1';
 	int SpikedNum = 0;
-	int CurrentFrameIndex = 0;
+	CurrentFrameIndex = 0;
 	while (1)
 	{
 	//	sleep(100);

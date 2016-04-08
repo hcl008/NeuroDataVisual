@@ -38,6 +38,7 @@ public:
 	void GenerateAddressCode(string Str_bit19,int Index);
 	int * DataIndex;
 	V3D * AddressCode;
+	int CurrentFrameIndex;
 private:
 	int ReadStep;
 	bool DoRead;

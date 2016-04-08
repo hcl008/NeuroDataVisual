@@ -286,7 +286,19 @@ int GetDataProcess::Input(int FrameIndex)
 	infile.close();
 	QDir RemoveFile;
 	QString QFileHeader = QString::fromStdString(FileHeader);
-	RemoveFile.remove(QFileHeader);
+
+	//remove file
+
+
+
+
+//	RemoveFile.remove(QFileHeader);
+
+
+
+
+
+
 // 	if (infile.eof())
 // 	{
 // 		return 0;

@@ -1,0 +1,10 @@
+﻿生成启动时间为 2016/4/7 16:32:21。
+     1>项目“C:\Users\pc\Documents\Visual Studio 2013\Projects\QNeuro\QNeuro\QNeuro.vcxproj”在节点 2 上(Build 个目标)。
+     1>C:\Program Files (x86)\MSBuild\Microsoft.Cpp\v4.0\V120\Microsoft.CppCommon.targets(170,5): warning MSB8018: No outputs specified for item "QMainPanel.h". Its custom build command will be skipped.
+     1>Link:
+         QNeuro.vcxproj -> C:\Users\pc\Documents\Visual Studio 2013\Projects\QNeuro\Win32\Debug\QNeuro.exe
+     1>已完成生成项目“C:\Users\pc\Documents\Visual Studio 2013\Projects\QNeuro\QNeuro\QNeuro.vcxproj”(Build 个目标)的操作。
+
+生成成功。
+
+已用时间 00:00:00.33

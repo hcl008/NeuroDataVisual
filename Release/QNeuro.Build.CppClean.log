@@ -1,0 +1,38 @@
+c:\users\pc\documents\visual studio 2013\projects\qneuro\qneuro\release\qtdirobserver.obj
+c:\users\pc\documents\visual studio 2013\projects\qneuro\qneuro\release\qglutthread.obj
+c:\users\pc\documents\visual studio 2013\projects\qneuro\qneuro\release\qbatexec.obj
+c:\users\pc\documents\visual studio 2013\projects\qneuro\qneuro\release\originaldata.obj
+c:\users\pc\documents\visual studio 2013\projects\qneuro\qneuro\release\obj_main.obj
+c:\users\pc\documents\visual studio 2013\projects\qneuro\qneuro\release\obj.obj
+c:\users\pc\documents\visual studio 2013\projects\qneuro\qneuro\release\main.obj
+c:\users\pc\documents\visual studio 2013\projects\qneuro\qneuro\release\init.obj
+c:\users\pc\documents\visual studio 2013\projects\qneuro\qneuro\release\glwidget.obj
+c:\users\pc\documents\visual studio 2013\projects\qneuro\qneuro\release\moc_qglutthread.obj
+c:\users\pc\documents\visual studio 2013\projects\qneuro\qneuro\release\moc_glwidget.obj
+c:\users\pc\documents\visual studio 2013\projects\qneuro\qneuro\release\moc_dataadapter.obj
+c:\users\pc\documents\visual studio 2013\projects\qneuro\qneuro\release\dataadapter.obj
+c:\users\pc\documents\visual studio 2013\projects\qneuro\qneuro\release\qmainpanel.obj
+c:\users\pc\documents\visual studio 2013\projects\qneuro\qneuro\release\moc_qmainpanel.obj
+c:\users\pc\documents\visual studio 2013\projects\qneuro\qneuro\release\aqwidgetframeless.obj
+c:\users\pc\documents\visual studio 2013\projects\qneuro\qneuro\release\qrc_glwidget.obj
+c:\users\pc\documents\visual studio 2013\projects\qneuro\qneuro\release\additionalinfo.obj
+c:\users\pc\documents\visual studio 2013\projects\qneuro\qneuro\generatedfiles\release\moc_glwidget.cpp
+c:\users\pc\documents\visual studio 2013\projects\qneuro\qneuro\generatedfiles\ui_glwidget.h
+<<<<<<< HEAD:QNeuro/Release/QNeuro.Build.CppClean.log
+=======
+c:\users\pc\documents\visual studio 2013\projects\qneuro\qneuro\generatedfiles\release\moc_dataadapter.cpp
+c:\users\pc\documents\visual studio 2013\projects\qneuro\qneuro\generatedfiles\release\moc_qglutthread.cpp
+>>>>>>> 20c52743ecfcbbe87dc1495bdf86c54c3d2379d7:Release/QNeuro.Build.CppClean.log
+c:\users\pc\documents\visual studio 2013\projects\qneuro\qneuro\generatedfiles\qrc_glwidget.cpp
+c:\users\pc\documents\visual studio 2013\projects\qneuro\qneuro\generatedfiles\release\moc_qglutthread.cpp
+c:\users\pc\documents\visual studio 2013\projects\qneuro\qneuro\generatedfiles\release\moc_dataadapter.cpp
+c:\users\pc\documents\visual studio 2013\projects\qneuro\win32\release\qneuro.exe
+c:\users\pc\documents\visual studio 2013\projects\qneuro\qneuro\release\qneuro.tlog\cl.command.1.tlog
+c:\users\pc\documents\visual studio 2013\projects\qneuro\qneuro\release\qneuro.tlog\cl.read.1.tlog
+c:\users\pc\documents\visual studio 2013\projects\qneuro\qneuro\release\qneuro.tlog\cl.write.1.tlog
+c:\users\pc\documents\visual studio 2013\projects\qneuro\qneuro\release\qneuro.tlog\custombuild.command.1.tlog
+c:\users\pc\documents\visual studio 2013\projects\qneuro\qneuro\release\qneuro.tlog\custombuild.read.1.tlog
+c:\users\pc\documents\visual studio 2013\projects\qneuro\qneuro\release\qneuro.tlog\custombuild.write.1.tlog
+c:\users\pc\documents\visual studio 2013\projects\qneuro\qneuro\release\qneuro.tlog\link.command.1.tlog
+c:\users\pc\documents\visual studio 2013\projects\qneuro\qneuro\release\qneuro.tlog\link.read.1.tlog
+c:\users\pc\documents\visual studio 2013\projects\qneuro\qneuro\release\qneuro.tlog\link.write.1.tlog

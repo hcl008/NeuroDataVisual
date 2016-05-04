@@ -5,8 +5,8 @@
 GLint SCREEN_WIDTH1   = 0;
 GLint SCREEN_HEIGHT1 = 0;
 //设置程序的窗口大小
-GLint windowWidth = 640;
-GLint windowHeight = 480;
+GLint windowWidth = 1780;
+GLint windowHeight = 680;
 //绕x轴旋转角度
 GLfloat xRotAngle = 0.0f;
 //绕y轴旋转角度
@@ -15,13 +15,17 @@ GLfloat yRotAngle = 0.0f;
 
 void renderScreen(void){
 
+
+		//	QGlutThread::BindingWindow();
 	
-//	QGlutThread::BindingWindow();
-	RenderScene();
-	glutPostRedisplay();
-	glPopMatrix();
-	//交换两个缓冲区的指针
-	glutSwapBuffers();
+	
+		RenderScene();
+		glutPostRedisplay();
+		glPopMatrix();
+		//交换两个缓冲区的指针
+		glutSwapBuffers();
+		
+
 	
 }
 //设置Redering State 
@@ -60,6 +64,9 @@ void changSize(GLint w, GLint h){
 
 }
 
+
+
+
 void sPecialkeyFuc(int key, int x, int y){
 
 	if (key == GLUT_KEY_UP){
@@ -84,8 +91,43 @@ void sPecialkeyFuc(int key, int x, int y){
 
 QGlutThread::QGlutThread(int argc, char* argv[], QWidget *parent /*= 0*/)
 {
+	
+	
 
-//	this->setGeometry(0, 0, windowWidth, windowHeight);;
+//	this->setWindowFlags(Qt::SubWindow | Qt::FramelessWindowHint);
+	m_nTimerId = QWidget::startTimer(30);
+	this->setGeometry(AQWidgetFrameless::cPos.x(), AQWidgetFrameless::cPos.y(), windowWidth, windowHeight);
+// 	GluWidget = new QWidget();
+// 	GluWidget->setGeometry(0, 0, 640, 320);
+// 	QPushButton *startBtn = new QPushButton(tr("Start Simulation"));
+// 	QPushButton *stopBtn = new QPushButton(tr("Stop Simulation"));
+// 	QPlainTextEdit *output = new QPlainTextEdit;
+// 
+// 	QVBoxLayout *mainLayout = new QVBoxLayout;
+// 	QHBoxLayout *container = new QHBoxLayout;
+// 	QVBoxLayout *consoleLayout = new QVBoxLayout;
+// 
+// 	
+// 	consoleLayout->addWidget(startBtn, 1);
+// 	consoleLayout->addWidget(stopBtn, 1);
+// //	consoleLayout->addWidget(this, 1);
+// 	
+// 	GluWidget->setLayout(consoleLayout);
+// // 	container->addWidget(consoleWidget, 1);
+// 	container->addWidget(this, 4);
+// 
+// 	QWidget *w = new QWidget;
+// 	w->setLayout(container);
+// 	mainLayout->addWidget(w, 3);
+// 	mainLayout->addWidget(output, 1);
+
+
+/*	this->setGeometry(0, 0, windowWidth, windowHeight);;*/
+// 	BindingTimer = new QTimer();
+// 	QWidget::connect(BindingTimer, SIGNAL(timeout()), (QWidget *)this, SLOT(timerDone()));
+	
+	
+/*	BindingTimer->start(30);*/
 	Init();
 		//初始化glut 
 	glutInit(&argc, argv);
@@ -96,10 +138,42 @@ QGlutThread::QGlutThread(int argc, char* argv[], QWidget *parent /*= 0*/)
 
 //	this->start();
 }
+// void QGlutThread::timerDone()
+// {
+// 	int a = 0;
+// }
+void QGlutThread::timerEvent(QTimerEvent *event)
+{
+	if (AQWidgetFrameless::SysStatus == CLOSE_APP)
+	{
+		this->close();
+	}
+	
+	else if (AQWidgetFrameless::SysStatus == MINIMIZE_APP)
+	{
+		
+		this->showMinimized();
+	}
+// 	if (AQWidgetFrameless::SysSubStatus == AWAKE_APP)
+// 	{
+// 		this->showNormal();
+// 		AQWidgetFrameless::SysSubStatus = NORMAL_APP;
+// 	/*	AQWidgetFrameless::SysStatus = NORMAL_APP;*/
+// 	}
 
+
+	QPoint X_Increamental(140, 40);
+	QPoint thisPos = AQWidgetFrameless::cPos + X_Increamental;
+//		this->move(thisPos);
+		this->raise();
+	//qDebug("timer event, id %d", event->timerId());
+
+}
 QGlutThread::~QGlutThread()
 {
+	if (m_nTimerId != 0)
 
+		QWidget::killTimer(m_nTimerId);
 }
 
 void QGlutThread::resizeEvent(QResizeEvent *)

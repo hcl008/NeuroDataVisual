@@ -2,6 +2,10 @@
 #include "main.h"										
 #include "obj.h"								
 #include "DataAdapter.h"
+#include "AQWidgetFrameless.h"
+#include <exception>
+#include <fstream>
+ofstream ofile;
 bool  g_bFullScreen = true;								
 HWND  g_hWnd;											
 RECT  g_rRect;											
@@ -17,7 +21,7 @@ UINT g_Texture[MAX_TEXTURES] = {0};
 CLoadObj g_Loadobj;									
 t3DModel g_3DModel;									
 
-int   g_ViewMode = GL_LINE_STRIP;
+int   g_ViewMode = GL_TRIANGLES;//GL_LINE_STRIP;
 bool  g_bLighting     = true;		
 float g_RotateX		  = 0.0f;		
 float g_RotationSpeed = 0.1f;		
@@ -76,19 +80,88 @@ void MainLoop()
 
 }
 
+
+
+#define MAX_CHAR       128
+
+void drawString(const char* str) {
+	static int isFirstCall = 1;
+	static GLuint lists;
+
+	if (isFirstCall) { // 如果是第一次调用，执行初始化
+		// 为每一个ASCII字符产生一个显示列表
+		isFirstCall = 0;
+
+		// 申请MAX_CHAR个连续的显示列表编号
+		lists = glGenLists(MAX_CHAR);
+
+		// 把每个字符的绘制命令都装到对应的显示列表中
+		wglUseFontBitmaps(wglGetCurrentDC(), 0, MAX_CHAR, lists);
+	}
+	// 调用每个字符对应的显示列表，绘制每个字符
+	for (; *str != '\0'; ++str)
+		glCallList(lists + *str);
+}
+void selectFont(int size, int charset, const char* face) {
+	HFONT hFont = CreateFontA(size, 0, 0, 0, FW_MEDIUM, 0, 0, 0,
+		charset, OUT_DEFAULT_PRECIS, CLIP_DEFAULT_PRECIS,
+		DEFAULT_QUALITY, DEFAULT_PITCH | FF_SWISS, face);
+	HFONT hOldFont = (HFONT)SelectObject(wglGetCurrentDC(), hFont);
+	DeleteObject(hOldFont);
+}
 void RenderScene() 
 {
 
-
+	ofile.open("vertexInfo.txt");
 		glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 		glLoadIdentity();
+		
+		gluLookAt(12.0f, 0, 0,    0, 0.0f, 0,    1, 1, 0);
 
-		gluLookAt(8, 0, 0, 0, 1.0f, 0, 1, 0, 0);
 		glRotatef(-90, 1.0f, 0, 0);
-		glRotatef(g_RotateX, 0, 0, 1.0f);
+		glRotatef(g_RotateX, 0.0f, 0.0f, 1.0f);
 		g_RotateX += g_RotationSpeed;
 		//	glEnable(GL_LIGHTING);
 		// 遍历模型中所有的对象
+// 		glLineWidth(3.0f);
+// 		glBegin(GL_LINES);
+// 		// 绘制红色的x轴
+// 		glColor3f(1.f, 0.f, 0.f);
+// 		glVertex3f(-1.0f, 1.0f, 0.0f);
+// 		glVertex3f(1.0f, 1.0f, 0.0f);
+// 
+// 		glColor3f(1.f, 0.f, 0.f);
+// 		glVertex3f(1.0f, 1.0f, 0.0f);
+// 		glVertex3f(1.0f, -1.0f, 0.0f);
+// 
+// 		glColor3f(1.f, 0.f, 0.f);
+// 		glVertex3f(-1.0f, -1.0f, 0.0f);
+// 		glVertex3f(1.0, -1.0f, 0.0f);
+// 
+// 		glColor3f(1.f, 0.f, 0.f);
+// 		glVertex3f(-1.0f, 1.0f, 0.0f);
+// 		glVertex3f(-1.0f, -1.0f, 0.0f);
+
+// 		// 绘制绿色的y轴
+// 		glColor3f(0.f, 1.f, 0.f);
+// 		glVertex3f(0.0f, 0.0f, 0.0f);
+// 		glVertex3f(0.0f, 5, 0.0f);
+// 		// 绘制蓝色的z轴
+// 		glColor3f(0.f, 0.f, 1.f);
+// 		glVertex3f(0.0f, 0.0f, 0.0f);
+// 		glVertex3f(0.0f, 0.0f, 5);
+// 		glEnd();
+		
+	//	glLoadIdentity();
+//		glViewport(0, 0, 800, 600);
+// 		glMatrixMode(GL_PROJECTION);
+// 		glLoadIdentity();
+/*		glFrustum(-1.5f, 1.5, -1.0f, 1, 1.5, 20);//创建一个透视视图平 截头体*/
+	//	glFrustum(-1.5*(GLfloat)750 / (GLfloat)410, 1.5*(GLfloat)750 / (GLfloat)410, -1.5*(GLfloat)750 / (GLfloat)410, 1.5*(GLfloat)750 / (GLfloat)410, -150.0, 150.0);
+
+		glEnable(GL_BLEND);        // 打开混合
+		glDisable(GL_DEPTH_TEST);    // 关闭深度测试
+		glBlendFunc(GL_SRC_ALPHA, GL_ONE);
 		int CountIndex = 0;
 		for (int i = 0; i < g_3DModel.numOfObjects; i++)
 		{
@@ -97,7 +170,7 @@ void RenderScene()
 
 			// 获得当前显示的对象
 			t3DObject *pObject = &g_3DModel.pObject[i];
-			glPointSize(5.0f);
+			glPointSize(3.0f);
 			// 判断该对象是否有纹理映射
 			if (pObject->bHasTexture) {
 
@@ -113,8 +186,11 @@ void RenderScene()
 				glDisable(GL_TEXTURE_2D);
 				glColor3ub(255, 255, 255);
 			}
+			glLineWidth(2.0f);
+			glEnable(GL_LINE_SMOOTH);
 			// 开始以g_ViewMode模式绘制
-			glBegin(GL_POINTS);	//GL_POINTS g_ViewMode
+			glBegin(GL_LINE_STRIP);	//GL_POINTS g_ViewMode
+			
 			// 遍历所有的面
 			
 			for (int j = 0; j < pObject->numOfFaces; j++)
@@ -144,29 +220,40 @@ void RenderScene()
 							glColor3ub(pColor[0], pColor[1], pColor[2]);
 						}
 					}
-					glColor3f(0.0f, 0.0f, 0.0f);
+					glColor4f(0.0f, 0.0f, 0.0f,0.0f);
 				//	glColor3f(float((j % 255) / 255), 1.0f - (float(j % 255) / 255), 0.0);
-					if (m_DataAdapter.DataIndex[CountIndex] == 1)
+					if (m_DataAdapter.DataIndex[CountIndex] >0 && CountIndex <= 18847)
 					{
-						glColor3f(1.0f, 0.0f, 0.0f);
+						glColor4f((float)m_DataAdapter.AddressCode[(m_DataAdapter.DataIndex[CountIndex])].R, (float)m_DataAdapter.AddressCode[m_DataAdapter.DataIndex[CountIndex]].G, (float)m_DataAdapter.AddressCode[m_DataAdapter.DataIndex[CountIndex]].B,0.5f);
+				//		glColor3f(1.0f, 0.0f, 0.0f);
 					}
-// 					else
-// 					{
-// 						glColor3f(0.0f, 0.0f, 0.0f);
-// 					}
-					
+					else
+					{
+						glColor4f(0.0f, 0.0f, 0.0f, 0.0f);
+					}
 
+
+			//		ofile << "CountIndex: " << index << "  Object: " <<i<< endl;
+					
 				//	glColor3f((float)m_DataAdapter.m_parallel3DObj[i].pColors[index].x / 255, (float)m_DataAdapter.m_parallel3DObj[i].pColors[index].y / 255, (float)m_DataAdapter.m_parallel3DObj[i].pColors[index].z / 255);
-					glVertex3f(pObject->pVerts[index].x, pObject->pVerts[index].y, pObject->pVerts[index].z);
+					try
+					{
+						glVertex3f(pObject->pVerts[index].x, pObject->pVerts[index].y, pObject->pVerts[index].z);
+					}
+					catch (exception *e)
+					{
+						return;
+					}
 					CountIndex++;
 				}
 			}
 			CountIndex = 0;
 			glEnd();								// 绘制结束
 		}
-
-
-
+//		glViewport(750, 0, 800, 610);
+		glEnable(GL_BLEND);        // 打开混合
+		glDisable(GL_DEPTH_TEST);    // 关闭深度测试
+		glBlendFunc(GL_SRC_ALPHA, GL_ONE);
 
 
 
@@ -178,23 +265,23 @@ void RenderScene()
 			// 获得当前显示的对象
 			t3DObject *pObject = &g_3DModel.pObject[i];
 			glPointSize(1.0f);
-			// 判断该对象是否有纹理映射
-			if (pObject->bHasTexture) {
-
-				// 打开纹理映射
-
-				glEnable(GL_TEXTURE_2D);
-				glColor3ub(255, 255, 255);
-				glBindTexture(GL_TEXTURE_2D, g_Texture[pObject->materialID]);
-			}
-			else {
-
-				// 关闭纹理映射
-				glDisable(GL_TEXTURE_2D);
-				glColor3ub(255, 255, 255);
-			}
+// 			// 判断该对象是否有纹理映射
+// 			if (pObject->bHasTexture) {
+// 
+// 				// 打开纹理映射
+// 
+// 				glEnable(GL_TEXTURE_2D);
+// 				glColor3ub(255, 255, 255);
+// 				glBindTexture(GL_TEXTURE_2D, g_Texture[pObject->materialID]);
+// 			}
+// 			else {
+// 
+// 				// 关闭纹理映射
+// 				glDisable(GL_TEXTURE_2D);
+// 				glColor3ub(255, 255, 255);
+// 			}
 			// 开始以g_ViewMode模式绘制
-			glBegin(GL_POINTS);	//GL_POINTS g_ViewMode
+			glBegin(GL_TRIANGLE_STRIP);	//GL_POINTS g_ViewMode
 			// 遍历所有的面
 
 			for (int j = 0; j < pObject->numOfFaces; j++)
@@ -206,25 +293,25 @@ void RenderScene()
 					int index = pObject->pFaces[j].vertIndex[whichVertex];
 
 					// 给出法向量
-					glNormal3f(pObject->pNormals[index].x, pObject->pNormals[index].y, pObject->pNormals[index].z);
+			//		glNormal3f(pObject->pNormals[index].x, pObject->pNormals[index].y, pObject->pNormals[index].z);
 
-					// 如果对象具有纹理
-					if (pObject->bHasTexture) {
-
-						// 确定是否有UVW纹理坐标
-						if (pObject->pTexVerts) {
-							glTexCoord2f(pObject->pTexVerts[index].x, pObject->pTexVerts[index].y);
-						}
-					}
-					else {
-
-						if (g_3DModel.pMaterials.size() && pObject->materialID >= 0)
-						{
-							BYTE *pColor = g_3DModel.pMaterials[pObject->materialID].color;
-							glColor3ub(pColor[0], pColor[1], pColor[2]);
-						}
-					}
-					glColor3f(1.0f, 1.0f, 1.0f);
+// 					// 如果对象具有纹理
+// 					if (pObject->bHasTexture) {
+// 
+// 						// 确定是否有UVW纹理坐标
+// 						if (pObject->pTexVerts) {
+// 							glTexCoord2f(pObject->pTexVerts[index].x, pObject->pTexVerts[index].y);
+// 						}
+// 					}
+// 					else {
+// 
+// 						if (g_3DModel.pMaterials.size() && pObject->materialID >= 0)
+// 						{
+// 							BYTE *pColor = g_3DModel.pMaterials[pObject->materialID].color;
+// 							glColor3ub(pColor[0], pColor[1], pColor[2]);
+// 						}
+// 					}
+					glColor4f(0.10f, 0.10f, 0.3f,0.1f);
 					//	glColor3f(float((j % 255) / 255), 1.0f - (float(j % 255) / 255), 0.0);
 
 					// 					else
@@ -232,18 +319,43 @@ void RenderScene()
 					// 						glColor3f(0.0f, 0.0f, 0.0f);
 					// 					}
 
-
+					try
+					{
+						glVertex3f(pObject->pVerts[index].x, pObject->pVerts[index].y, pObject->pVerts[index].z);
+					}
+					catch (exception* e)
+					{
+						return;
+					}
 					//	glColor3f((float)m_DataAdapter.m_parallel3DObj[i].pColors[index].x / 255, (float)m_DataAdapter.m_parallel3DObj[i].pColors[index].y / 255, (float)m_DataAdapter.m_parallel3DObj[i].pColors[index].z / 255);
-					glVertex3f(pObject->pVerts[index].x*1.1, pObject->pVerts[index].y*1.1, pObject->pVerts[index].z*1.1);
+					
 					CountIndex++;
 				}
 			}
 			CountIndex = 0;
 			glEnd();								// 绘制结束
 		}
-		m_DataAdapter.SetDoRead(true);
+//		glClear(GL_COLOR_BUFFER_BIT);
+		selectFont(32, ANSI_CHARSET, "Comic Sans MS");  
+		glColor3f(1.0f, 0.0f, 0.0f);
+		glRasterPos3f(1.0f, 1.0f,-2.0f);
+		string PlotStr = "Index: ";
+		char temp[20];
+		itoa(m_DataAdapter.CurrentFrameIndex,temp,10); 
+		PlotStr += temp;
+		drawString(PlotStr.c_str());
+		if (AQWidgetFrameless::DisplayStatus == START)
+		{
+			m_DataAdapter.SetDoRead(true);
+		}
+		if (AQWidgetFrameless::DisplayStatus == STOP)
+		{
+			m_DataAdapter.SetDoRead(true);
+			AQWidgetFrameless::DisplayStatus = PAUSE;
+			m_DataAdapter.CurrentFrameIndex = 0;
+		}
 
-
+//		ofile.close();
 //	SwapBuffers(g_hDC);									// 交换缓冲区
 }
 

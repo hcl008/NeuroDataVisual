@@ -1,13 +1,17 @@
-﻿生成启动时间为 2016/3/29 17:57:44。
+﻿生成启动时间为 2016/4/27 10:46:40。
      1>项目“C:\Users\pc\Documents\Visual Studio 2013\Projects\QNeuro\QNeuro\QNeuro.vcxproj”在节点 2 上(Build 个目标)。
+     1>C:\Program Files (x86)\MSBuild\Microsoft.Cpp\v4.0\V120\Microsoft.CppCommon.targets(170,5): warning MSB8018: No outputs specified for item "QMainPanel.h". Its custom build command will be skipped.
      1>ClCompile:
-         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /I.\GeneratedFiles /I. /IC:\Qt\Qt5.3.2\5.3\msvc2013_opengl\include /I.\GeneratedFiles\Debug /IC:\Qt\Qt5.3.2\5.3\msvc2013_opengl\include\QtCore /IC:\Qt\Qt5.3.2\5.3\msvc2013_opengl\include\QtGui /IC:\Qt\Qt5.3.2\5.3\msvc2013_opengl\include\QtMultimedia /IC:\Qt\Qt5.3.2\5.3\msvc2013_opengl\include\QtMultimediaWidgets /IC:\Qt\Qt5.3.2\5.3\msvc2013_opengl\include\QtNetwork /IC:\Qt\Qt5.3.2\5.3\msvc2013_opengl\include\QtQuick /IC:\Qt\Qt5.3.2\5.3\msvc2013_opengl\include\QtSql /IC:\Qt\Qt5.3.2\5.3\msvc2013_opengl\include\QtTest /IC:\Qt\Qt5.3.2\5.3\msvc2013_opengl\include\ActiveQt /IC:\Qt\Qt5.3.2\5.3\msvc2013_opengl\include\QtOpenGL /IC:\Qt\Qt5.3.2\5.3\msvc2013_opengl\include\QtPrintSupport /IC:\Qt\Qt5.3.2\5.3\msvc2013_opengl\include\QtWidgets /IC:\Qt\Qt5.3.2\5.3\msvc2013_opengl\include\QtXml /IC:\Qt\Qt5.3.2\5.3\msvc2013_opengl\include\QtXmlPatterns /IC:\Qt\Qt5.3.2\5.3\msvc2013_opengl\include\QtANGLE /Zi /nologo /W1 /WX- /Od /Oy- /D UNICODE /D WIN32 /D WIN64 /D QT_DLL /D QT_CORE_LIB /D QT_GUI_LIB /D QT_MULTIMEDIA_LIB /D QT_MULTIMEDIAWIDGETS_LIB /D QT_NETWORK_LIB /D QT_QUICK_LIB /D QT_SQL_LIB /D QT_TESTLIB_LIB /D QT_OPENGL_LIB /D QT_PRINTSUPPORT_LIB /D QT_WIDGETS_LIB /D QT_XML_LIB /D QT_XMLPATTERNS_LIB /Gm- /EHsc /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt OriginalData.cpp
-         OriginalData.cpp
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /I.\GeneratedFiles /I. /IC:\Qt\Qt5.3.2\5.3\msvc2013_opengl\include /I.\GeneratedFiles\Debug /IC:\Qt\Qt5.3.2\5.3\msvc2013_opengl\include\QtCore /IC:\Qt\Qt5.3.2\5.3\msvc2013_opengl\include\QtGui /IC:\Qt\Qt5.3.2\5.3\msvc2013_opengl\include\QtMultimedia /IC:\Qt\Qt5.3.2\5.3\msvc2013_opengl\include\QtMultimediaWidgets /IC:\Qt\Qt5.3.2\5.3\msvc2013_opengl\include\QtNetwork /IC:\Qt\Qt5.3.2\5.3\msvc2013_opengl\include\QtQuick /IC:\Qt\Qt5.3.2\5.3\msvc2013_opengl\include\QtSql /IC:\Qt\Qt5.3.2\5.3\msvc2013_opengl\include\QtTest /IC:\Qt\Qt5.3.2\5.3\msvc2013_opengl\include\ActiveQt /IC:\Qt\Qt5.3.2\5.3\msvc2013_opengl\include\QtOpenGL /IC:\Qt\Qt5.3.2\5.3\msvc2013_opengl\include\QtPrintSupport /IC:\Qt\Qt5.3.2\5.3\msvc2013_opengl\include\QtWidgets /IC:\Qt\Qt5.3.2\5.3\msvc2013_opengl\include\QtXml /IC:\Qt\Qt5.3.2\5.3\msvc2013_opengl\include\QtXmlPatterns /IC:\Qt\Qt5.3.2\5.3\msvc2013_opengl\include\QtANGLE /Zi /nologo /W1 /WX- /Od /Oy- /D UNICODE /D WIN32 /D WIN64 /D QT_DLL /D QT_CORE_LIB /D QT_GUI_LIB /D QT_MULTIMEDIA_LIB /D QT_MULTIMEDIAWIDGETS_LIB /D QT_NETWORK_LIB /D QT_QUICK_LIB /D QT_SQL_LIB /D QT_TESTLIB_LIB /D QT_OPENGL_LIB /D QT_PRINTSUPPORT_LIB /D QT_WIDGETS_LIB /D QT_XML_LIB /D QT_XMLPATTERNS_LIB /Gm- /EHsc /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt obj_main.cpp
+         obj_main.cpp
        Link:
-         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"C:\Users\pc\Documents\Visual Studio 2013\Projects\QNeuro\Win32\Debug\\QNeuro.exe" /NOLOGO /LIBPATH:C:\Qt\Qt5.3.2\5.3\msvc2013_opengl\lib qtmaind.lib Qt5Cored.lib Qt5Guid.lib Qt5Multimediad.lib Qt5MultimediaWidgetsd.lib Qt5Networkd.lib Qt5Quickd.lib Qt5Sqld.lib Qt5Testd.lib Qt5AxContainerd.lib Qt5AxBased.lib Qt5OpenGLd.lib opengl32.lib glu32.lib Qt5PrintSupportd.lib Qt5Widgetsd.lib Qt5Xmld.lib Qt5XmlPatternsd.lib Qt5AxBase.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:\Users\pc\Documents\Visual Studio 2013\Projects\QNeuro\Win32\Debug\QNeuro.pdb" /SUBSYSTEM:WINDOWS /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:\Users\pc\Documents\Visual Studio 2013\Projects\QNeuro\Win32\Debug\QNeuro.lib" /MACHINE:X86 /SAFESEH /SAFESEH:NO Debug\DataAdapter.obj
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"C:\Users\pc\Documents\Visual Studio 2013\Projects\QNeuro\Win32\Debug\\QNeuro.exe" /NOLOGO /LIBPATH:C:\Qt\Qt5.3.2\5.3\msvc2013_opengl\lib qtmaind.lib Qt5Cored.lib Qt5Guid.lib Qt5Multimediad.lib Qt5MultimediaWidgetsd.lib Qt5Networkd.lib Qt5Quickd.lib Qt5Sqld.lib Qt5Testd.lib Qt5AxContainerd.lib Qt5AxBased.lib Qt5OpenGLd.lib opengl32.lib glu32.lib Qt5PrintSupportd.lib Qt5Widgetsd.lib Qt5Xmld.lib Qt5XmlPatternsd.lib Qt5AxBase.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:\Users\pc\Documents\Visual Studio 2013\Projects\QNeuro\Win32\Debug\QNeuro.pdb" /SUBSYSTEM:WINDOWS /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:\Users\pc\Documents\Visual Studio 2013\Projects\QNeuro\Win32\Debug\QNeuro.lib" /MACHINE:X86 /SAFESEH /SAFESEH:NO Debug\AdditionalInfo.obj
+         Debug\AQWidgetFrameless.obj
+         Debug\DataAdapter.obj
          Debug\moc_DataAdapter.obj
          Debug\moc_glwidget.obj
          Debug\moc_QGlutThread.obj
+         Debug\moc_QMainPanel.obj
          Debug\qrc_glwidget.obj
          Debug\glwidget.obj
          Debug\Init.obj
@@ -15,10 +19,13 @@
          Debug\Obj.obj
          Debug\obj_main.obj
          Debug\OriginalData.obj
+         Debug\QBatExec.obj
          Debug\QGlutThread.obj
+         Debug\QMainPanel.obj
+         Debug\QtDirObserver.obj
          QNeuro.vcxproj -> C:\Users\pc\Documents\Visual Studio 2013\Projects\QNeuro\Win32\Debug\QNeuro.exe
      1>已完成生成项目“C:\Users\pc\Documents\Visual Studio 2013\Projects\QNeuro\QNeuro\QNeuro.vcxproj”(Build 个目标)的操作。
 
 生成成功。
 
-已用时间 00:00:01.59
+已用时间 00:00:03.07

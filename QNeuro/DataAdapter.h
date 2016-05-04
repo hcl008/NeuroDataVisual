@@ -3,8 +3,14 @@
 #include <QTimer>
 #include <QThread>
 #include "MAIN.H"
+#include "AdditionalInfo.h"//NEW
 #define OBJ_NUM 8
-
+struct V3D
+{
+	float R;
+	float G;
+	float B;
+};
 
 class DataAdapter:QThread
 {
@@ -12,6 +18,10 @@ class DataAdapter:QThread
 	Q_OBJECT
 
 public:
+	static int SpikedNum;//NEW
+	static int CurrentFrameIndex;//NEW
+
+
 	DataAdapter();
 	~DataAdapter(){};
 	void run();
@@ -30,10 +40,13 @@ public:
 	}
 	vector<Frame> m_FrameList;
 	t3DParallelColor * m_parallel3DObj;
+	void GenerateAddressCode(string Str_bit19,int Index);
 	int * DataIndex;
+	V3D * AddressCode;
+	
 private:
 	int ReadStep;
 	bool DoRead;
-
+	QtDirObserver m_DirObserver;
 
 };
